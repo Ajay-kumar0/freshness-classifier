@@ -33,6 +33,10 @@ transform = transforms.Compose([
                           std=[0.229, 0.224, 0.225]),
 ])
 
+@app.get("/")
+def root():
+    return {"message": "Freshness Classifier API is running"}
+
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     if not file.content_type.startswith("image/"):

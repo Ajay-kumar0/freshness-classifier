@@ -29,7 +29,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch("https://freshness-classifier-78qq.onrender.com/predict", {
         method: "POST",
         body: formData,
       });
