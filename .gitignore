@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+dist/
+frontend/dist/
+
+# Data (large training data, not needed in repo)
+model/data/
+
+# Model weights (keep only if you WANT to commit them — comment out to include)
+# *.pt
+
+# Env
+.env
+
+# OS
+.DS_Store

@@ -1,0 +1,42 @@
+.container {
+  max-width: 480px;
+  margin: 40px auto;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+.dropzone {
+  border: 2px dashed #999;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+.preview {
+  max-width: 100%;
+  max-height: 240px;
+  border-radius: 8px;
+}
+.result {
+  margin-top: 24px;
+  text-align: left;
+}
+.prob-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.bar-bg {
+  flex: 1;
+  background: #eee;
+  border-radius: 4px;
+  height: 10px;
+  overflow: hidden;
+}
+.bar-fill {
+  background: #4caf50;
+  height: 100%;
+}
+.error {
+  color: red;
+}
