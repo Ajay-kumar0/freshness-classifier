@@ -6,7 +6,7 @@ from torchvision import datasets, transforms, models
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
-# --- Data ---
+#  Data 
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -23,7 +23,7 @@ test_loader  = DataLoader(test_ds, batch_size=32)
 class_names = train_ds.classes
 print("Classes:", class_names)
 
-# --- Model: MobileNetV2, freeze base, replace head ---
+# Model: MobileNetV2, freeze base, replace head
 model = models.mobilenet_v2(weights="IMAGENET1K_V1")
 for param in model.features.parameters():
     param.requires_grad = False
@@ -35,7 +35,7 @@ model = model.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.classifier.parameters(), lr=1e-3)
 
-# --- Train loop ---
+# Train loop 
 EPOCHS = 5
 for epoch in range(EPOCHS):
     model.train()
@@ -55,7 +55,7 @@ for epoch in range(EPOCHS):
 
     print(f"Epoch {epoch+1}/{EPOCHS} - loss: {running_loss/total:.4f} - acc: {correct/total:.4f}")
 
-# --- Eval ---
+# Eval 
 model.eval()
 correct, total = 0, 0
 with torch.no_grad():
@@ -67,7 +67,7 @@ with torch.no_grad():
         total += labels.size(0)
 print(f"Test accuracy: {correct/total:.4f}")
 
-# --- Save ---
+# Save 
 torch.save({
     "model_state": model.state_dict(),
     "class_names": class_names,
